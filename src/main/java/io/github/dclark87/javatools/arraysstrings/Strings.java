@@ -60,4 +60,31 @@ public class Strings {
         }
         return true;
     }
+
+    /**
+     * Remove all duplicate characters of a string
+     *
+     * @param string string to make unique chars of
+     */
+    public static void removeDupCharsFromString(String string) {
+        // Check trivial edge cases
+        if (string == null) return;
+        if (string.length() < 2) return;
+
+        // Convert to array of chars
+        char[] stringChars = string.toCharArray();
+
+        int tail = 1;
+        for (int i=1; i < stringChars.length; ++i) {
+            int j;
+            for (j=0; j < tail; ++j) {
+                if (stringChars[i] == stringChars[j]) break;
+            }
+            if (j == tail) {
+                stringChars[tail] = stringChars[i];
+                ++tail;
+            }
+        }
+        stringChars[tail] = 0;
+    }
 }
