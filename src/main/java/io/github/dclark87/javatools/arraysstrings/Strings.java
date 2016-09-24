@@ -62,29 +62,43 @@ public class Strings {
     }
 
     /**
-     * Remove all duplicate characters of a string
+     * Remove all duplicate characters of a string using sub-strings
      *
      * @param string string to make unique chars of
      */
-    public static void removeDupCharsFromString(String string) {
-        // Check trivial edge cases
-        if (string == null) return;
-        if (string.length() < 2) return;
-
-        // Convert to array of chars
-        char[] stringChars = string.toCharArray();
-
-        int tail = 1;
-        for (int i=1; i < stringChars.length; ++i) {
-            int j;
-            for (j=0; j < tail; ++j) {
-                if (stringChars[i] == stringChars[j]) break;
-            }
-            if (j == tail) {
-                stringChars[tail] = stringChars[i];
-                ++tail;
+    public static String removeDupeCharsFromString(String string) {
+        StringBuilder noDupes = new StringBuilder();
+        for (int i = 0; i < string.length(); ++i) {
+            String subString = string.substring(i, i + 1);
+            if (noDupes.indexOf(subString) == -1) {
+                noDupes.append(subString);
             }
         }
-        stringChars[tail] = 0;
+        return noDupes.toString();
+    }
+
+    /**
+     * Remove all duplicate characters of a string using bit-masks
+     *
+     * @param string string to make unique chars of
+     * @return
+     */
+    public static String removeDupeCharsFromString2(String string) {
+        // Init bit mask and string builder
+        int bitMask = 0;
+        StringBuilder noDupes = new StringBuilder();
+
+        // Iterate through each character of input
+        for (int i = 0; i < string.length(); ++i) {
+            char stringChar = string.charAt(i);
+            int charMask = 1 << (int) stringChar;
+            // If character wasn't found at location in bitmask
+            if ((bitMask & charMask) == 0) {
+                // Add char to bitmask and string builder
+                bitMask |= charMask;
+                noDupes.append(stringChar);
+            }
+        }
+        return noDupes.toString();
     }
 }

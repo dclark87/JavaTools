@@ -34,7 +34,7 @@ public class CellStack {
         } else ybeg = 1;
 
         // Iterate through vertical coordinates
-        for (yy=ybeg; yy < ybeg+y-1; yy++) {
+        for (yy = ybeg; yy < ybeg+y-1; yy++) {
             num += yy;
         }
 

@@ -36,15 +36,23 @@ public class StringsTest {
      * Test method removes duplicate characters
      */
     @Test
-    public void testRemoveDupCharsFromString() {
-        int nonDupsLength = nonDupsString.length();
-
+    public void testRemoveDupeCharsFromString() {
         // Call method and assert size hasn't changed
-        Strings.removeDupCharsFromString(nonDupsString);
-        Assert.assertEquals(nonDupsLength, nonDupsString.length());
+        String dupesNeedNotRemoved = Strings.removeDupeCharsFromString(nonDupsString);
+        Assert.assertEquals(dupesNeedNotRemoved.length(), nonDupsString.length());
 
         // Call method and assert size has changed
-        Strings.removeDupCharsFromString(dupsString);
-        Assert.assertEquals(dupsString.length(), 5);
+        String dupesNeedRemoved = Strings.removeDupeCharsFromString(dupsString);
+        Assert.assertEquals(dupesNeedRemoved.length(), 5);
     }
+
+    @Test
+    public void testRemoveDupeCharsFromString2() {
+        // Call method and assert size hasn't changed
+        String dupesNeedNotRemoved = Strings.removeDupeCharsFromString2(nonDupsString);
+        Assert.assertEquals(dupesNeedNotRemoved.length(), nonDupsString.length());
+
+        // Call method and assert size has changed
+        String dupesNeedRemoved = Strings.removeDupeCharsFromString2(dupsString);
+        Assert.assertEquals(dupesNeedRemoved.length(), 5);    }
 }
