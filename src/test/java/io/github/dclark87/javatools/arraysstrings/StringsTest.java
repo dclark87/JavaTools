@@ -33,7 +33,7 @@ public class StringsTest {
     }
 
     /**
-     * Test method removes duplicate characters
+     * Test method removes duplicate characters with sub-string method
      */
     @Test
     public void testRemoveDupeCharsFromString() {
@@ -46,6 +46,9 @@ public class StringsTest {
         Assert.assertEquals(dupesNeedRemoved.length(), 5);
     }
 
+    /**
+     * Test method removes duplicate characters with bit-mask method
+     */
     @Test
     public void testRemoveDupeCharsFromString2() {
         // Call method and assert size hasn't changed

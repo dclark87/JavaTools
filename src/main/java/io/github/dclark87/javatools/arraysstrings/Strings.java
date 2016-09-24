@@ -16,7 +16,7 @@ public class Strings {
      */
     public static boolean hasAllUniqueCharsHashMap(String string) {
         // Init a new hash map
-        Map<Character, Integer> charCountMap = new HashMap<Character, Integer>();
+        Map<Character, Boolean> charCountMap = new HashMap<Character, Boolean>();
 
         // Iterate through the characters of string
         for (int i = 0; i < string.length(); i++) {
@@ -24,7 +24,7 @@ public class Strings {
             if (charCountMap.containsKey(charInString)) {
                 return false;
             } else {
-                charCountMap.put(charInString, 1);
+                charCountMap.put(charInString, true);
             }
         }
         return true;
