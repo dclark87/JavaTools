@@ -3,7 +3,6 @@ package io.github.dclark87.javatools.puzzles;
 import org.junit.Assert;
 import org.junit.Test;
 
-
 /**
  * Test case for the cell stack coordinate puzzle
  */
