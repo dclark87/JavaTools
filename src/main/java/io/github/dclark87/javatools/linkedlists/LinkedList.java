@@ -10,9 +10,11 @@ import java.util.NoSuchElementException;
  */
 public class LinkedList<T> implements Iterable<T> {
 
+    // Init the head of the list
     private Node<T> head;
 
     /**
+     * Iterator method implementation
      *
      * @return
      */
