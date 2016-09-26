@@ -1,6 +1,5 @@
 package io.github.dclark87.javatools.sortsearch;
 
-import io.github.dclark.javatools.sortsearch.Sort;
 import org.junit.Assert;
 import org.junit.Test;
 

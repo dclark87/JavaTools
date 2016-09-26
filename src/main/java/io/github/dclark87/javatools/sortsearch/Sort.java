@@ -1,4 +1,4 @@
-package io.github.dclark.javatools.sortsearch;
+package io.github.dclark87.javatools.sortsearch;
 
 /**
  * Class with sorting methods
