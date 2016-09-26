@@ -1,5 +1,7 @@
 package io.github.dclark87.javatools.sortsearch;
 
+import java.util.Arrays;
+
 /**
  * Class with sorting methods
  */
@@ -19,13 +21,9 @@ public class Sort {
         }
 
         // Split the array into two halves
-        Comparable[] first = new Comparable[array.length/2];
-        Comparable[] second = new Comparable[array.length-first.length];
-
-
-        // Copy elements to new arrays
-        System.arraycopy(array, 0, first, 0, first.length);
-        System.arraycopy(array, first.length, second, 0, second.length);
+        int midIdx = array.length/2;
+        Comparable[] first = Arrays.copyOfRange(array, 0, midIdx);
+        Comparable[] second = Arrays.copyOfRange(array, midIdx, array.length);
 
         // Recursively call to break into smaller pieces
         mergeSort(first);

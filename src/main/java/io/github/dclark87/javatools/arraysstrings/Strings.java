@@ -1,7 +1,6 @@
 package io.github.dclark87.javatools.arraysstrings;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Class with string methods
@@ -16,7 +15,7 @@ public class Strings {
      */
     public static boolean hasAllUniqueCharsHashMap(String string) {
         // Init a new hash map
-        Map<Character, Boolean> charCountMap = new HashMap<Character, Boolean>();
+        HashMap<Character, Boolean> charCountMap = new HashMap<Character, Boolean>();
 
         // Iterate through the characters of string
         for (int i = 0; i < string.length(); i++) {
@@ -100,5 +99,68 @@ public class Strings {
             }
         }
         return noDupes.toString();
+    }
+
+    /**
+     * Method to decide if two strings are anagrams or not
+     *
+     * @param str1 first string
+     * @param str2 second string
+     * @return true if the strings are anagrams, false otherwise
+     */
+    public static boolean areStringsAnagrams(String str1, String str2) {
+
+        // Trivial edge case
+        if (str1.length() != str2.length()) return false;
+
+        HashMap<Character, Integer> str1Map = new HashMap<Character, Integer>();
+
+        // Iterate through first string and build a hash map
+        for (Character c1 : str1.toCharArray()) {
+            if (str1Map.containsKey(c1)) {
+                str1Map.put(c1, str1Map.get(c1)+1);
+            }
+            else {
+                str1Map.put(c1, 1);
+            }
+        }
+
+        // Iterate through second string and decrement from found entries to be 0
+        for (Character c2 : str2.toCharArray()) {
+            if (!str1Map.containsKey(c2)) return false;
+            str1Map.put(c2, str1Map.get(c2)-1);
+        }
+
+        // Test all entries are 0
+        for (Integer cnt : str1Map.values()) {
+            if (cnt != 0) return false;
+        }
+
+        // Made it through all the tests, must be anagrams
+        return true;
+    }
+
+    /**
+     * Method to replace all spaces in a string with '20%'
+     *
+     * @param str string with spaces to replace
+     * @return string with replaced spaces
+     */
+    public static String replaceSpacesInString(String str) {
+        if (!str.contains(" ")) return str;
+
+        StringBuilder strBuilder = new StringBuilder();
+
+        int spaceInteger = (int) ' ';
+        for (char c : str.toCharArray()) {
+            if ((int) c == spaceInteger) {
+                strBuilder.append("%20");
+            }
+            else {
+                strBuilder.append(c);
+            }
+        }
+
+        return strBuilder.toString();
     }
 }
