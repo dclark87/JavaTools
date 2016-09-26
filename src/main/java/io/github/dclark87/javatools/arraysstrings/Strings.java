@@ -3,7 +3,7 @@ package io.github.dclark87.javatools.arraysstrings;
 import java.util.HashMap;
 
 /**
- * Class with string methods
+ * Class with String methods
  */
 public class Strings {
 

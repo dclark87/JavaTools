@@ -11,8 +11,8 @@ import org.junit.Test;
 public class StringsTest {
 
     // Init variables
-    private final String nonDupesString = "abcde";
-    private final String dupesString = "aabbccddee";
+    private static final String nonDupesString = "abcde";
+    private static final String dupesString = "aabbccddee";
 
     /**
      * Test string has all unique characters using hash map method
