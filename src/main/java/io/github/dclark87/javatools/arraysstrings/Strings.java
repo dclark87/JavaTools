@@ -1,6 +1,7 @@
 package io.github.dclark87.javatools.arraysstrings;
 
 import java.util.HashMap;
+import java.util.Stack;
 
 /**
  * Class with String methods
@@ -163,4 +164,43 @@ public class Strings {
 
         return strBuilder.toString();
     }
+
+    /**
+     * Reverse the words in a string
+     *
+     * @param str string to reverse words of
+     * @return the word-reversed string
+     */
+    public static String reverseWordsInString(String str) {
+        // Trivial case
+        if (!str.contains(" ")) return str;
+
+        // Push words onto stack
+        Stack<String> wordStack = new Stack<String>();
+        int j = 0;
+        for (int i = 0; i < str.length(); ++i) {
+            // If we found a space, push word onto stack
+            if (str.charAt(i) == ' ') {
+                String word = str.substring(j, i);
+                wordStack.push(word);
+                j = i+1;
+            }
+            // If we're at end of string, push last word onto stack
+            else if (i == str.length()-1) {
+                String word = str.substring(j, i+1);
+                wordStack.push(word);
+            }
+        }
+
+        // Pop words off of stack
+        StringBuilder backWords = new StringBuilder();
+        while (wordStack.size() > 1) {
+            backWords.append(wordStack.pop());
+            backWords.append(' ');
+        }
+        backWords.append(wordStack.pop());
+
+        return backWords.toString();
+    }
+
 }

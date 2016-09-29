@@ -68,4 +68,31 @@ public class Arrays {
             }
         }
     }
+
+    private static void reverseArray(int[] array, int first, int last) {
+        while (first < last) {
+            int temp = array[last];
+            array[last] = array[first];
+            array[first] = temp;
+            first++;
+            last--;
+        }
+    }
+
+    /**
+     * Rotate an array, in place, by a given amount
+     *
+     * @param array the array to rotate
+     * @param shift the amount to rotate by
+     */
+    public static void rotateArrayRightByNum(int[] array, int shift) {
+        if (shift == array.length) return;
+        if (shift > array.length) {
+            shift = shift % array.length;
+        }
+        int index = array.length-shift;
+        reverseArray(array, index, array.length-1);
+        reverseArray(array, 0, index-1);
+        reverseArray(array, 0, array.length-1);
+    }
 }

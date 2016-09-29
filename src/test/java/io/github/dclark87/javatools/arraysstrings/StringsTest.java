@@ -38,12 +38,15 @@ public class StringsTest {
     @Test
     public void testRemoveDupeCharsFromString() {
         // Call method and assert size hasn't changed
-        String dupesNeedNotRemoved = Strings.removeDupeCharsFromString(nonDupesString);
-        Assert.assertEquals(dupesNeedNotRemoved.length(), nonDupesString.length());
+        String dupesNeedNotRemoved =
+                Strings.removeDupeCharsFromString(nonDupesString);
+        Assert.assertEquals(dupesNeedNotRemoved.length(),
+                nonDupesString.length());
 
         // Call method and assert size has changed
-        String dupesNeedRemoved = Strings.removeDupeCharsFromString(dupesString);
-        Assert.assertEquals(dupesNeedRemoved.length(), 5);
+        String dupesNeedRemoved =
+                Strings.removeDupeCharsFromString(dupesString);
+        Assert.assertEquals(5, dupesNeedRemoved.length());
     }
 
     /**
@@ -52,12 +55,15 @@ public class StringsTest {
     @Test
     public void testRemoveDupeCharsFromString2() {
         // Call method and assert size hasn't changed
-        String dupesNeedNotRemoved = Strings.removeDupeCharsFromString2(nonDupesString);
-        Assert.assertEquals(dupesNeedNotRemoved.length(), nonDupesString.length());
+        String dupesNeedNotRemoved =
+                Strings.removeDupeCharsFromString2(nonDupesString);
+        Assert.assertEquals(nonDupesString.length(),
+                dupesNeedNotRemoved.length());
 
         // Call method and assert size has changed
-        String dupesNeedRemoved = Strings.removeDupeCharsFromString2(dupesString);
-        Assert.assertEquals(dupesNeedRemoved.length(), 5);
+        String dupesNeedRemoved =
+                Strings.removeDupeCharsFromString2(dupesString);
+        Assert.assertEquals(5, dupesNeedRemoved.length());
     }
 
     /**
@@ -68,9 +74,12 @@ public class StringsTest {
         final String anagramStr1 = "mississippi";
         final String anagramStr2 = "pipsissisim";
         final String nonAnagramStr3 = "missississi";
-        Assert.assertTrue(Strings.areStringsAnagrams(anagramStr1, anagramStr2));
-        Assert.assertFalse(Strings.areStringsAnagrams(anagramStr1, nonAnagramStr3));
-        Assert.assertFalse(Strings.areStringsAnagrams(anagramStr1, nonDupesString));
+        Assert.assertTrue(Strings.areStringsAnagrams(anagramStr1,
+                anagramStr2));
+        Assert.assertFalse(Strings.areStringsAnagrams(anagramStr1,
+                nonAnagramStr3));
+        Assert.assertFalse(Strings.areStringsAnagrams(anagramStr1,
+                nonDupesString));
     }
 
     /**
@@ -81,7 +90,24 @@ public class StringsTest {
         final String stringWithSpaces = "hi there homeSlice!";
         final String stringWithoutSpaces = "hi%20there%20homeSlice!";
 
-        Assert.assertEquals(Strings.replaceSpacesInString(stringWithoutSpaces), stringWithoutSpaces);
-        Assert.assertEquals(Strings.replaceSpacesInString(stringWithSpaces), stringWithoutSpaces);
+        Assert.assertEquals(stringWithoutSpaces,
+                Strings.replaceSpacesInString(stringWithoutSpaces));
+        Assert.assertEquals(stringWithoutSpaces,
+                Strings.replaceSpacesInString(stringWithSpaces));
     }
+
+    /**
+     * Test method reverses words order
+     */
+    @Test
+    public void testReverseWordsInString() {
+        final String testStr1 = "what is up?";
+        final String testStr2 = "howdy ho neighbor! great day homer!";
+
+        Assert.assertEquals("up? is " + "what",
+                Strings.reverseWordsInString(testStr1));
+        Assert.assertEquals("homer! day great neighbor! ho howdy",
+                Strings.reverseWordsInString(testStr2));
+    }
+
 }

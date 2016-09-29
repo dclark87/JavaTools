@@ -32,4 +32,19 @@ public class ArraysTest {
         Arrays.rotateMatrix90DegreesClockwiseInPlace(originalMatrix);
         Assert.assertArrayEquals(originalMatrix, rotatedMatrix);
     }
+
+    /**
+     * Test we can rotate a simple array to the right by a number
+     */
+    @Test
+    public void testRotateArrayRightByNum() {
+        int[] testArr = {1,2,3,4,5,6,7};
+        int[] shiftedArr = {5,6,7,1,2,3,4};
+        int[] shiftedShiftedArr = {4,5,6,7,1,2,3};
+        Arrays.rotateArrayRightByNum(testArr, 3);
+        Assert.assertArrayEquals(shiftedArr, testArr);
+
+        Arrays.rotateArrayRightByNum(shiftedArr, 8);
+        Assert.assertArrayEquals(shiftedShiftedArr, shiftedArr);
+    }
 }
