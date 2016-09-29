@@ -69,6 +69,12 @@ public class Arrays {
         }
     }
 
+    /**
+     * Reverse an array in-place between (inclusive) the two indices
+     * @param array array to reverse
+     * @param first first index to begin reverse at, inclusive
+     * @param last last index to begin reverse at, inclusive
+     */
     private static void reverseArray(int[] array, int first, int last) {
         while (first < last) {
             int temp = array[last];

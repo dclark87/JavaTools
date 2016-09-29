@@ -21,7 +21,8 @@ public class ArraysTest {
      */
     @Test
     public void testRotateMatrix90DegreesClockwise() {
-        Assert.assertArrayEquals(Arrays.rotateMatrix90DegreesClockwise(originalMatrix), rotatedMatrix);
+        Assert.assertArrayEquals(rotatedMatrix,
+                Arrays.rotateMatrix90DegreesClockwise(originalMatrix));
     }
 
     /**
@@ -30,7 +31,7 @@ public class ArraysTest {
     @Test
     public void testRotateMatrix90DegreesClockwiseInPlace() {
         Arrays.rotateMatrix90DegreesClockwiseInPlace(originalMatrix);
-        Assert.assertArrayEquals(originalMatrix, rotatedMatrix);
+        Assert.assertArrayEquals(rotatedMatrix, originalMatrix);
     }
 
     /**
