@@ -15,6 +15,8 @@ dependencies {
     compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '3.1.0'
     compile group: 'org.apache.kafka', name: 'kafka_2.10', version: '0.10.0.1'
     compileOnly "org.projectlombok:lombok:1.16.10"
+    compile group: 'org.apache.hadoop', name: 'hadoop-core', version: '0.20.2'
+
 }
 
 task myJavadocs(type: Javadoc) {

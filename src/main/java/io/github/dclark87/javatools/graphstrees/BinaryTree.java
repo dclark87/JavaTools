@@ -1,7 +1,6 @@
 package io.github.dclark87.javatools.graphstrees;
 
 import lombok.Data;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.NoSuchElementException;
 
@@ -88,7 +87,6 @@ public class BinaryTree<T> {
      * @param data subtree data payload to find
      * @return the sub-tree with the desired data payload
      */
-    @Nullable
     private BinaryTree<T> findNode(T data) {
 
         // If we found the node with the matching data, return the subtree

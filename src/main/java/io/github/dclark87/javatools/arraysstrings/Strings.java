@@ -1,5 +1,6 @@
 package io.github.dclark87.javatools.arraysstrings;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -203,4 +204,53 @@ public class Strings {
         return backWords.toString();
     }
 
+    /**
+     * Reverse a string
+     * @param str string to reverse the characters of
+     * @return the reversed string
+     */
+    public static String reverseString(String str) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = str.length() - 1; i > -1; --i) {
+            stringBuilder.append(str.charAt(i));
+        }
+        return stringBuilder.toString();
+    }
+
+    /**
+     * Find the largest palindrome of a string
+     *
+     * @param str
+     * @return
+     */
+    public static String findLargestPalindrome(String str) {
+        String testStr = str.substring(0);
+        ArrayList<String> palindromes = new ArrayList<String>();
+        int i = 0;
+
+        // While counter is less than the string length
+        while (i < str.length()) {
+            String revStr = reverseString(testStr);
+            // If the test string is a palindrome, store and reset test to be
+            // start at next character of input to end
+            if (revStr.equals(testStr) || testStr.length() < 2) {
+                palindromes.add(testStr);
+                ++i;
+                testStr = str.substring(i, str.length());
+            }
+            // Not a palindrome, see if the testStr[:-1] is a palindrome
+            else {
+                testStr = testStr.substring(0, testStr.length()-1);
+            }
+        }
+
+        // Get largest element
+        String largest = palindromes.get(0);
+        for (i=1; i < palindromes.size(); ++i) {
+            if (largest.length() < palindromes.get(i).length()) {
+                largest = palindromes.get(i);
+            }
+        }
+        return largest;
+    }
 }

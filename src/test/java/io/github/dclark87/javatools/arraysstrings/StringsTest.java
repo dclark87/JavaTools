@@ -110,4 +110,28 @@ public class StringsTest {
                 Strings.reverseWordsInString(testStr2));
     }
 
+    /**
+     * Test that we can reverse a string successfully
+     */
+    @Test
+    public void testReverseString() {
+        final String testStr1 = "racecar";
+        final String testStr2 = "abcdefg";
+
+        Assert.assertEquals(testStr1, Strings.reverseString(testStr1));
+        Assert.assertEquals("gfedcba", Strings.reverseString(testStr2));
+    }
+
+    @Test
+    public void testFindLargestPalindrome() {
+        final String testStr1 = "a";
+        final String testStr2 = "aba";
+        final String testStr3 = "bbaa";
+        final String testStr4 = "accbracecarccabbab";
+
+        Assert.assertEquals(testStr1, Strings.findLargestPalindrome(testStr1));
+        Assert.assertEquals(testStr2, Strings.findLargestPalindrome(testStr2));
+        Assert.assertEquals("bb", Strings.findLargestPalindrome(testStr3));
+        Assert.assertEquals("racecar", Strings.findLargestPalindrome(testStr4));
+    }
 }
