@@ -2,8 +2,9 @@ group 'io.github.dclark87'
 version '0.0.1'
 
 apply plugin: 'java'
+apply plugin: 'maven'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.6
 
 repositories {
     mavenCentral()
@@ -11,6 +12,11 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '3.1.0'
+    compile group: 'org.apache.kafka', name: 'kafka_2.10', version: '0.10.0.1'
+    compileOnly "org.projectlombok:lombok:1.16.10"
+    compile group: 'org.apache.hadoop', name: 'hadoop-core', version: '0.20.2'
+
 }
 
 task myJavadocs(type: Javadoc) {
