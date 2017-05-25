@@ -11,10 +11,11 @@ public class AlphaCombos {
      * Print sets of letters
      * @param n print up to n successive letters
      */
-    public static void printCombos(int n) {
+    public static String printCombos(int n) {
         int j, k;
         int max = 0;
 
+        String combos = "";
         // Calculate size of max number to iterate to
         for (int m =n; m > 0; --m) {
             max += (int) Math.pow(26, m);
@@ -30,7 +31,8 @@ public class AlphaCombos {
                 out = (char) (k + ASCII_OFFSET) + out;
                 j = j/26-1;
             }
-            System.out.println(out);
+            combos = combos + out + "\n";
         }
+        return combos;
     }
 }

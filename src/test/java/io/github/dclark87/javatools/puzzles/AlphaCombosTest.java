@@ -16,8 +16,7 @@ public class AlphaCombosTest {
             stringBuilder.append("\n");
         }
         String outString = stringBuilder.toString();
-        System.out.println(outString);
-        AlphaCombos.printCombos(6);
-        //Assert.assertEquals(outString, AlphaCombos.printCombos(1));
+        String combos = AlphaCombos.printCombos(1);
+        Assert.assertEquals(outString, combos);
     }
 }
