@@ -1,4 +1,4 @@
-# JavaTools
+# javatools
 Various utilities developed in Java
 
 The project structure here was chosen to follow the Apache Maven [Standard
